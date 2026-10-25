@@ -1,3 +1,6 @@
+### Why a Study Planner?
+I need to manage my time better now that I have multiple upcoming exams, so a Study Planner seemed an obvious solution to that problem. 
+
 ### What AI Did I Use?
 I used Claude as my AI coding assistant to build a study planner for university students. I started by asking for a simple feature list and layout without any code. Then I built the app in small steps instead of asking for everything at once.
 
