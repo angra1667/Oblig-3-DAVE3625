@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Study Planner</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Study Planner</h1>
+    <p id="summary"></p>
+  </header>
+
+  <aside class="stack">
+    <section class="panel">
+      <h2>Courses</h2>
+      <div id="courses"></div>
+      <form id="courseForm" style="margin-top:12px" novalidate>
+        <div class="field"><label for="cname">New course</label>
+          <input type="text" id="cname" maxlength="40" placeholder="e.g. INF101 Programming"></div>
+        <div class="field"><div class="swatches" id="swatches" role="radiogroup" aria-label="Course colour"></div></div>
+        <button class="btn" type="submit">Add course</button>
+        <p class="err" id="cerr" role="alert"></p>
+      </form>
+    </section>
+    <section class="panel">
+      <h2>Weekly lectures</h2>
+      <div id="lectures"></div>
+      <form id="lectureForm" style="margin-top:12px" novalidate>
+        <div class="field"><label for="lcourse">Course</label><select id="lcourse"></select></div>
+        <div class="field"><label for="lday">Day</label>
+          <select id="lday"><option value="0">Monday</option><option value="1">Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5">Saturday</option><option value="6">Sunday</option></select></div>
+        <div class="row">
+          <div class="field"><label for="lstart">Start</label><input type="time" id="lstart" value="10:15"></div>
+          <div class="field"><label for="lend">End</label><input type="time" id="lend" value="12:00"></div>
+        </div>
+        <div class="field"><label for="lroom">Room (optional)</label><input type="text" id="lroom" maxlength="30" placeholder="e.g. Aud. 2"></div>
+        <button class="btn" type="submit">Add lecture</button>
+        <p class="err" id="lerr" role="alert"></p>
+      </form>
+    </section>
+  </aside>
+
+  <main class="stack">
+    <section class="panel">
+      <div class="toolbar">
+        <h2 style="margin:0" id="calTitle"></h2>
+        <div class="actions">
+          <button class="btn ghost" id="calPrev" aria-label="Previous month">‹ Prev</button>
+          <button class="btn ghost" id="calToday">Today</button>
+          <button class="btn ghost" id="calNext" aria-label="Next month">Next ›</button>
+        </div>
+      </div>
+      <div class="legend" style="--c:#f48fb1">
+        <span><span class="chip"></span>Assignment or project</span>
+        <span><span class="chip exam"></span>Exam</span>
+        <span><span class="chip lecture"></span>Lecture</span>
+      </div>
+      <div class="cal" id="cal"></div>
+      <div id="dayDetail" style="margin-top:14px"></div>
+    </section>
+    <section class="panel">
+      <h2>Add a deadline</h2>
+      <form id="taskForm" novalidate>
+        <div class="field"><label for="ttitle">Title</label>
+          <input type="text" id="ttitle" maxlength="80" placeholder="e.g. Assignment 2"></div>
+        <div class="row">
+          <div class="field"><label for="tcourse">Course</label><select id="tcourse"></select></div>
+          <div class="field"><label for="ttype">Type</label>
+            <select id="ttype"><option>Assignment</option><option>Exam</option><option>Reading</option><option>Project</option></select></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="tdate">Due date</label><input type="date" id="tdate"></div>
+          <div class="field"><label for="ttime">Due time</label>
+            <input type="time" id="ttime" value="23:59" required></div>
+        </div>
+        <div class="field"><label for="tnote">Comment (optional)</label><input type="text" id="tnote" maxlength="200" placeholder="e.g. Bring calculator, group of 3"></div>
+        <button class="btn" type="submit">Add deadline</button>
+        <p class="err" id="terr" role="alert"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <h2 style="margin:0" id="listTitle">All deadlines</h2>
+        <label style="margin:0;display:flex;gap:6px;align-items:center;font-size:13px">
+          <input type="checkbox" id="hideDone"> Hide completed</label>
+      </div>
+      <div id="list"></div>
+    </section>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
